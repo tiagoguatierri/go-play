@@ -8,9 +8,9 @@
 5. Usar injeção de dependência (Bonus)
 
 ## Links
-Documentação oficial do go: https://go.dev/doc/
-Exemplos do tipo "mão na massa": https://gobyexample.com/
-Project layout: https://github.com/golang-standards/project-layout
+- Documentação oficial do go: https://go.dev/doc/
+- Exemplos do tipo "mão na massa": https://gobyexample.com/
+- Project layout: https://github.com/golang-standards/project-layout
 
 ## Autor
-Tiago Guatierri https://github.com/tiagoguatierri # go-play
+Tiago Guatierri https://github.com/tiagoguatierri

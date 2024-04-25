@@ -10,8 +10,16 @@ var (
 	ErrCustomerNameRequired  = errors.New("name is required")
 	ErrCustomerEmailRequired = errors.New("email is required")
 	ErrCustomerCpfRequired   = errors.New("cpf is required")
+	ErrCustomerAlreadyExists = errors.New("customer already exists")
 )
 
+const (
+	CustomerFieldID    CustomerField = "id"
+	CustomerFieldEmail CustomerField = "email"
+	CustomerFieldCpf   CustomerField = "cpf"
+)
+
+type CustomerField string
 type Customer struct {
 	ID        string
 	Name      string

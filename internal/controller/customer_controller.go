@@ -22,10 +22,10 @@ func NewCustomerController(repo repository.Repository[*entity.Customer]) *Custom
 }
 
 func (ctrl *CustomerController) Create(dto dto.CreateCustomerDTO) (*entity.Customer, error) {
-	getReq := usecase.GetCustomerRequest{}
-	getReq.Field = entity.CustomerFieldCpf
-	getReq.Value = dto.Cpf
-	exists, err := ctrl.getCustomerUseCase.Execute(getReq)
+	gcr := usecase.GetCustomerRequest{}
+	gcr.Field = entity.CustomerFieldCpf
+	gcr.Value = dto.Cpf
+	exists, err := ctrl.getCustomerUseCase.Execute(gcr)
 
 	if err != nil {
 		return nil, fmt.Errorf("CustomerControllerError: %w", err)
@@ -35,13 +35,13 @@ func (ctrl *CustomerController) Create(dto dto.CreateCustomerDTO) (*entity.Custo
 		return nil, entity.ErrCustomerAlreadyExists
 	}
 
-	createReq := usecase.CreateCustomerRequest{}
-	createReq.Name = dto.Name
-	createReq.Cpf = dto.Cpf
-	createReq.Email = dto.Email
-	createReq.Age = dto.Age
+	ccr := usecase.CreateCustomerRequest{}
+	ccr.Name = dto.Name
+	ccr.Cpf = dto.Cpf
+	ccr.Email = dto.Email
+	ccr.Age = dto.Age
 
-	customer, err := ctrl.createCustomerUseCase.Execute(createReq)
+	customer, err := ctrl.createCustomerUseCase.Execute(ccr)
 	if err != nil {
 		return nil, fmt.Errorf("CustomerControllerError: %w", err)
 	}
